@@ -59,3 +59,12 @@
 (define (test a1 a2 b1 b2)
   (mul-interval-new (make-interval a1 a2)
 					(make-interval b1 b2)))
+;;; 2.12
+;;;
+(define (make-center-percent point percent)
+  	(make-interval (- point (* point percent)) (+ point (* point percent))))
+(define (center a)
+  (/ (+ (lower-interval a) (upper-interval a)) 2))
+(define (percent a)
+  (/ (/ (- (upper-interval a) (lower-interval a)) 2) (center a)))
+
