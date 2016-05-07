@@ -1,0 +1,6 @@
+(define (make-center-percent point percent)
+  ())
+(define (center a)
+  ())
+(define (percent a)
+  ())
