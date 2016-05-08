@@ -1,0 +1,10 @@
+(define (same-parity a . b)
+  (define (same-parity-internal head li)
+	(if (null? li) (list )
+	  (if (= (remainder head 2) 
+			 (remainder (car li) 2))
+		   (cons (car li) (same-parity-internal head (cdr li)))
+		   (same-parity-internal head (cdr li)))))
+  (if (null? b) (list a)
+	(cons a (same-parity-internal a b))))
+
