@@ -1,0 +1,22 @@
+(define (square value)
+  (* value value))
+(define (square-tree tree)
+  (cond ((null? tree) nil)
+		((not (pair? tree)) (square-tree value))
+		(else (cons (square-tree (car tree))
+					(square-tree (cdr tree))))))
+
+(define (square-tree-1 tree)
+  (map (lambda (sub-tree)
+		 (if (pair? sub-tree)
+		     (square-tree-1 sub-tree)
+			 (square sub-tree)))
+	   tree))
+
+
+(define (tree-map proc tree)
+  (map (lambda (sub-tree)
+		 (if (pair? sub-tree)
+		   (tree-map proc sub-tree)
+		   (proc sub-tree)))
+	   tree))
